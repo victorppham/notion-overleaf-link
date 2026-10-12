@@ -1,0 +1,142 @@
+# Ch. 1: Overview (2026-01-27)
+
+## 1.1: IQHE
+- Von Klitzing discovers plateaus in Hall resistance as a function of B-field (1980), quantized at
+$\displaystyle R_H = \frac{h}{ne^2}$
+    - note that n is an integer, not \$ of electrons
+- quantization is a notable property of a macroscopic system independent of material, geometry, or sample
+- “concurrent with the plateaus is a ‘superflow — dissipationless current flow as $T \rightarrow 0$
+---
+### Landau Levels
+- B-field quantizes electron’s KE in 2D
+- Quantized kinetic energy levels are **Landau levels**, separated by “cyclotron energy” gap — $\hbar \omega$.
+- # of filled LLs are proportional to electron density $\rho$; inversely proportional to B-field strength; given by
+    $\displaystyle \nu = \frac{\rho h c}{e B}$
+- The plateau discovered by von Klitzing appears as  $\nu \approx n$ (filling factor becomes an integer $\longrightarrow$
+---
+for filling factor $\nu$ an integer $n$, in ground state: $N$ electrons occupy $N$ single particle orbitals of the lowest $n$ LLs.
+ground state can be described by a wave function $\rightarrow$ single Slater determinant, $\Phi_n$
+state is “incompressible” — excitations have non-zero energy
+## 1.2: FQHE
+- Tsui, Stormer, Gossard discover a non-integer plateau at $\nu = \frac{1}{3}$:
+    $\displaystyle R_H = \frac{h}{\frac{1}{3} e^2}$
+    - i.e. a pleatau when the lowest LL is 1/3rd full
+- **Laughlin wave function** for the ground state at $\nu = 1/m$:
+    $\displaystyle \Psi_{1/m} = \prod_{j<k} (z_j-z_k)^m e^{-\frac{1}{4} \sum_i |z_i|^2}$
+    where $z_j = x_j - iy_j$ is for the 2D coordinates of the $j$th electron as a complex #
+- $m$ must be an odd integer to ensure anti-symmetry
+- Laughlin: this state is incompressible; excitations have a fractional charge of magnitude $e/m$
+- other “fractional plateaus” have been discovered $\rightarrow$
+    $\displaystyle R_H = \frac{h}{fe^2}$
+    for $f$ a fraction
+## 1.3: Strongly correlated states
+- for strong B-fields, all electrons occupy the lowest LL $\rightarrow$ KE is constant
+- interactions are described by
+    $\displaystyle H=\sum_{j<k} \frac{1}{r_{jk}}$
+    where $r_{jk} = |z_j - z_k|$ is the distance between electrons $j$ and $k$
+    - this hamiltonian ignores a few things:
+    1. no parameters (coulomb interaction defines the energy scale)
+    2. degeneracy: # of degenerate ground states with $H=0$ is very large
+    3. for “no interactions” in an FQHE problem, the states are not meaningful $\rightarrow$ non-pertubative (in the sense that no weak coupling limit exists whose solution is approximate to a known solution
+        i.e. no “normal” state to start from, yet we need “full” answers without using perturbation
+- introduction of **composite fermions**
+## 1.4: Composite fermions
+- eigenfunctions/eigenenergies for ground/excited states of (strongly interacting) electrons at arbitrary LLL filling $\nu$ (**lowest landau level**) $\rightarrow$ expressed in terms of known solutions of noninteracting electrons at LL filling $\nu^*$ like so:
+    eigenfunction:
+    $\displaystyle \Psi_\nu = \mathcal{P}_{LLL} \prod_{j<k} (z_j - z_k)^{2p} \Phi_{\nu^*}$
+    eigenenergies:
+    $\displaystyle E_\nu = \frac{ \langle \Psi_\nu | \sum_{j<k} \frac{1}{r_{jk}} | \Psi_\nu \rangle }{ \langle \Psi_\nu | \Psi_\nu \rangle} + V_{el-bg} + V_{bg-bg}$
+- here, 
+    - $\displaystyle \nu = \frac{\nu^*}{2p \nu^* \pm 1}$ 
+    - $\displaystyle B^* = B-2p \rho \phi_0$ — effective B-field
+    - $\Phi_{\nu^*}$ = eigenfunctions of noninteracting electrons at $\nu^*$
+    - $\mathcal{P}_{LLL}$ projects the wavefunction to the right into LLL
+    - $p$ = integer
+    - $\rho$ = 2D density
+    - $\phi_0 = hc/e$ — flux quanta
+    - $V_{el-bg},\space V_{bg-bg}$ = electron-background and background-background interactions
+        - assume uniform positively charged neutralizing background
+- equations define 1-1 relation between ground/excited states between filling factor $\nu$ (with mag field $B$) and $\nu^*$ (mag field $B^*$)
+- Physical interpretation
+    - Jastrow factor $\prod_{j<k} (z_j - z_k)^{2p}$ — attaches $2p$ quantized vortices to each electron in $\Phi_{\nu^*}$ $\rightarrow$
+        - **composite fermion**: bound state of electron and the attached 2p vortices
+        - modeled (not literal) as the bound state + even # of magnetic flux quanta
+        - electrons capture vortices (becoming composite fermions) to minimize interaction energy
+    - as composite fermions move, the vortices produce **Berry phases** that cancel part of the **Aharonov-Bohm** phases from the externally applied B-field
+    - because of this cancellation, CFs experience a smaller B-field $B^*$ that could be 0
+        - **distinguishing property between CFs and electrons**
+    - CFs form Landau-like levels — $\Lambda$ levels — in $B^*$, occupying $\nu^*$ levels
+    - wave function of CFs at filling factor $\nu^*$ given by $\Psi_\nu$ definition above
+- CF interpretation is experimentally verified 
+- above is the “QM wave function” formulation of CFs
+- **composite fermion Chern-Simons theory (CFCS)** — topological field theory/framework using CF physics
+- **Laughlin wave function**: special case with $\nu^* = 1$, $2p = m-1$, $\Phi_1$ at ground state ($\nu = 1$)
+- CFs are a new class of collective topological quantum particles
+    - vortices are collective, topological, quantum object — NOT a degree of freedom in $H$, but rather an emergent state of all electrons
+        - has associated QM phases
+        - topological entity with a closed-loop QM phase of $2\pi$ independent of loop size/shape (topological — dependent on *count* alone)
+- 3 points:
+    1. A single CF is a collective bound state of all electrons; behaves like free ordinary particles for the most part
+    2. QM phases associated w/ the vortices mean the CF acts quantum mechanically — CFs would not exist without quantum mechanics
+    3. CF fluids are topologically quantum fluids
+        1. topologically quantization of the vorticity of CFs lead to Hall quantization, $B^*$, etc.
+## 1.5: Origin of FQHE
+- FQHE of electrons is a result of IQHE of CFs, happening when CF filling factor $\nu^*$ is an integer $n$
+- in the electron perspective, the filling factors are given by
+    $\displaystyle \nu = \frac{n}{2pm \pm 1}$
+    - CFs fill $n$ Landau-like levels
+    - fractional sequences
+    - order of stability
+    - odd denominators 
+    - exactness of Hall quantization
+        - $p$ has topological origin
+## 1.6: CF quantum fluid
+- notable states of CFs:
+    - IQHE of CFs: $\nu = n/(2pn \pm +1)$
+    - CF Fermi sea: $\nu = 1/2$
+    - Bardeen-Cooper-Schrieffer-like p-wave paired state ($\nu = 5/2$)
+    - FQHE of CFs (e.g. $\nu = 4/11$)
+    - quantum crystal of CFs (not experimentally seen)
+    - CF stripes and bubble crystals (not experimentally seen)
+- measured phenomena: Shubnikov-de Haas oscillations, commensurability oscillations, surface acoustic wae absorption, thermopower, magnetic focusing, bilayer drag, compressibility
+- determined parameters of CFs: quantum #s, charge, spin, exchange stats, effective mass, magnetic moment, Fermi wave vector, cyclotron orbits
+- observed exctations of CFs: charged excitation, excitons, rotons, bi-rotons, skyrmions, spin-flip exctiations, cyclotron resonance, flavor-altering excitations
+- excited CFs are **CF-quasiparticles**, with properties:
+    - fractional “local” charge: associated charge excess is a precise fraction of electron charge 
+    - fractional “braiding” statistics: CF-quasiparticles hypothesized to acquire nontrivial phases under braiding around one another $\rightarrow$ physical realization of “anyons” — not experimentally verified
+## 1.7: An “ideal” theory
+- **Pros of the CF theory**:
+    - Unification: multifaceted explanation from a single principle, unifies FQHE/IQHE, describes non-FQHE states (e.g. compressible states at even-denominator fractions), unified theory of quasiparticles, quasiholes, other FQHE excitations
+    - Simplicity: intuitive explanation for FQHE (e.g. sequences of odd denominator fractions, lack of FQHE at even-denominator fractions (except for one exception)
+    - Uniqueness: theory is “super-constraining” — parameter free answers for multiple interesting quantities, uniquely idenfities wave functions for the incompressible ground states and low-energy excitations
+    - Accuracy: CF theory matches exact computational results with practically exact wave functions; energies accurate to 0.1% — notable achievement without adjustable parameters
+    - Microscopic theory: 
+        - most other condensed matter theories try to explain macroscopic phenomena by solving microscopic Hamiltonians that describe a colletion of interacting particles
+        - however, this strategy requires approximations and subsequent corrections with experimental data
+            - e.g. BCS theory assumes that the normal state can be modeled in terms of weakly interacting Landau quasiparticles (new “variables”)
+        - CF theory uses actual wave functions from experiments; written in terms of real electron coordinates
+            - represent Hamiltonian soutions in quantum chemistry realm
+    - Falsifiability: theory is developed though predictions that are later confirmed, rather than explanations of known facts
+    - New particles: emergent physics are usually expressed through new particles; CFs behave as legitimate particles with mass, charge, spin, stats, etc. (despite complex and unconventional nature) — “as real as cooper pairs” - Stormer
+## 1.8: Misc. Remarks/Trivia
+- Macroscopic quantum phenomena without **Bose-Einstein condensation (BEC)**: these 2 things are typically associated with each other
+    - systems are characterized by formation of macroscopic quantum state with phase rigidity
+    - CF fluid defines a paradigm for macroscopic quantum behavior — it *is* a quantum fluid due to quantum mechanical phases determining macroscopic behavior, but these phases are in the form of quantized vortices, captured by electrons to produce new physics
+- Order without order parameter
+    - order in CF fluid characterized by formation of CFs — no off-diagonal long-range order nor order parameter (Landau definition)
+    - CF fluid is a topological quantum fluid — observed in $B^*$, responsible for FQHE, CF Fermi sea, etc.
+- “Meissner effect” without induced currents
+    - for type-I superconductors: applied B-field is fully screened (Meissner effect)
+        - induced macroscopic currents produce a B-field that cancel the external B-field 
+        - in CF fluids, the partial cancellation occur due to induced berry phases (QM origins)
+            - this cancellation is only detectable by CFs — external magnetometer will assess the full external B-field, but measuring through CFs will detect the reduced effective B-field
+- mass-generation w/o Anderson-Higgs mechanism: 
+    - Anderson-Higgs mechanism is responsible in the SM for generating mass
+    - CF implies a new mechanism for mass generation without breaking symmetry
+        - Hamiltonian of CF has no kinetic/mass term; imposed LLL limit means $m_e \rightarrow 0$
+        - through nonperturbative act of vortex assimilation, massless electrons become massive CFs
+            - mass originates from interelectron interactions; manifests through quantized “KE” levels of CFs, Fermi sea, & other phenomena
+- further questions:
+    - Could particles like CFs/anyons emerge in other contexts?
+    - Could they provide an underlying model for some known particles?
+    - Are there deeper conceptual implications of the CF theory that hasn’t been fully grasped?
