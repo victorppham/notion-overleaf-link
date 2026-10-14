@@ -1,0 +1,146 @@
+# Pseudopotentials for multiparticle interactions in the quantum Hall regime (rev. 2026-10-12)
+
+### Review of Haldane’s Construction
+for a single landau level, the two-body interaction Hamiltonian is
+$$
+H=\sum_{i<j}V(\bold{r}_i-\bold{r}_j)
+$$
+which is rotationally and translationally invariant
+we can focus on the associated wavefunction of the form $\Psi(\bold{r}_1,\bold{r}_2)$
+**any many electron wavefunction $\Psi_{n>2}$ can be **decomposed** into a sum containing $\Psi_{n=2}(\bold r_1, \bold r_2)$**
+
+$$
+\Psi(\bold r_1,...,\bold r_N) = \sum_a \Psi_a (\bold r_1, \bold r_2) \tilde \Psi_a(\bold r_3,...,\bold r_N)
+$$
+as a result of superposition
+the associated potential of $\Psi(\bold{r}_1,\bold{r}_2)$ is $V(\bold r_1 - \bold r_2)$
+---
+we can decompose our 2 electron (body) $\Psi$ into center of mass and relative degrees of freedom (keeping $H$ translationally invariant):
+$$
+\Psi(\bold r_i, \bold r_j)=\sum_{b,c}A_{b,c}\Psi_b^\text{CM} \bigg(\frac{\bold r_i + \bold r_j} 2 \bigg) \Psi^\text{rel}_c (\bold r_i - \bold r_j)
+$$
+apply analytic notation for wavefunctions;
+$$
+\bold r \rightarrow z^m \exp(-|z|^2/4)
+$$
+$$
+\Psi(\bold r_i,\bold r_j) \rightarrow \psi_b^\text{CM} \bigg(\frac{z_i + z_j} 2 \bigg) \psi^\text{rel}_c (z_i - z_j) e^{-\frac 1 4(|z_1|^2+|z_2|^2)}
+$$
+a convenient complete basis to describe $\psi^\text{rel} \rightarrow \psi$ is:
+$$
+\ket{L;i,j} = C_L(z_i-z_j)^L
+$$
+where $L$ is the relative angular momentum between particles $i$ and $j$ (odd for fermions, even for bosons), and $C_L$ is a normalization const.
+insert into $H$:
+$$
+H = \sum_{i<j}\sum_{L,L'} \ket{L;i,j}\bra{L;i,j}V(\bold r_i - \bold r_j) \ket {L';i,j} \bra{L';i,j}
+$$
+rotational invariance means $L$ is diagonal, so this simplifies;
+$$
+H = \sum_{i<j}\sum_L V_{L,2}P^L_{ij}
+$$
+where
+$$
+P^L_{ij} = \ket{L;i,j}\bra{L;i,j}
+$$
+is an operator projecting particles $i, j$ to a state of relative angular momentum $L$, and
+$$
+\begin{aligned}
+V_{L,2} &= \bra{L;i,j}V(\bold r_i - \bold r_j)\ket{L;i,j} \\
+&= \bra{L}V\ket{L}
+\end{aligned}
+$$
+is the pseudopotential coefficient, with $2$ indicating the 2 body interaction in specific; $V_{L,2}$ is independent of chosen $i,j$
+higher LLs generalize it very well: example below for 1st excited LL (1LL)
+    any electron state can be written as a LL raising operator $a^\dagger$ applied onto a LLL state
+    for an orthogonal set of relative L states in 1LL:
+    $$
+    \ket{L;i,j;1LL} = a^\dagger_i a^\dagger_j \ket{L;i,j}
+    $$
+    where
+    $$
+    a^\dagger_i = \sqrt2(-\delta_{z_i} + z^*_i/4)
+    $$
+    the derivative acts on the Gaussian factors and on the polynomial part of the wavefunction
+continuing with this gives us the same hamiltonian with modified pseudopotential coefficients:
+$$
+V_{L,2} = \bra{L;i,j} a_i a_j V(\bold r_i - \bold r_j) a^\dagger_i a^\dagger_j \ket{L;i,j}
+$$
+### M-Body Interactions
+generalizing to M-body interactions, consider the hamiltonian
+$$
+H = \sum_{i_1<i_2<...<i_M} V(\bold r_1,...,\bold r_M)
+$$
+for complete generalizing, assume we cannot reduce to a lower sum of $M^\prime<M$ bodies
+repeat the steps that $V$ is translationally and rotationally invariant; rewrite wavefunction in terms of relative and center of mass coordinates
+$$
+\Psi(\bold r_1,...,\bold r_M) = \sum_{b,c}A_{b,c} \Psi_b^\text{CM} \bigg( \frac{\bold r_1 + \bold r_2 ... + \bold r_M} M \bigg) \psi^\text{rel}_c(\bold r_1,...,\bold r_M)
+$$
+translational invariance: $\Psi^\text{rel}(\bold r_1, \bold r_2,…, \bold r_M) = \Psi^\text{rel}(\bold r_1 + \bold x, \bold r_2 + \bold x, …, \bold r_M + \bold x) \forall x$
+repeat rephrasing in analytic forms:
+$$
+\psi^\text{CM} \bigg(\frac 1 M \sum_{i=1}^Mz_i \bigg) \psi(z_1,...,z_M)e^{-\frac 1 4 \sum_{i = 1}^M |z_i|^2}\tag{1}
+$$
+in the same way $\psi_{n = 2}$ must be odd/even for fermions/bosons respectively, $\psi$ here must be translationally invariant as well as be **antisymmetric/symmetric** for fermions/bosons.
+characterize $\psi$ by $L$: define “relative angular momentum” operator on relative wavefunction to be the total degree of complex polynomial; if the polynomial is homogenous of degree $L$, then the polynomial is a relative angular momentum eigenstate with eigenvalue $L$ (PLANAR/DISK GEOMETRY)
+insert the complete set of relative wavefunctions ([analogous to this](/p/3f0b35a9887481d0baa3f88d968ed5d3?pvs=25#3f0b35a9887480b4a296e447e191325d)):
+$$
+H = \sum_{i_1<...<i_M}\sum_{L,q,q^\prime} \ket{L,q;i_1,...,i_M}V^{q,q^\prime}_{L,M}\bra{L,q^\prime;i_1,...,i_M}\tag{2}
+$$
+\^summed over all possible M-clusters
+here, matrix element $V_{L,M}^{q,q^\prime}$ is a hermitian matrix (and simplifies due to symmetry $\rightarrow i_1,…,i_M$ choice is arbitrary
+    $$
+    \begin{aligned}
+V^{q,q^\prime}_{L,M} &= \bra{L,q;i_1,...,i_M}V(\bold r_1,...,\bold r_M)\ket{L,q^\prime;i_1,...,i_M} \\
+&= \bra{L,q} V \ket{L, q^\prime}
+\end{aligned}\tag{3}
+    $$
+**note that this is for an $M$-body interaction; the matrix element is necessarily diagonal in $L$ by rotational invariance but not generally diagonal for $q$**
+
+orthonormal basis $\ket {L, q}$ is unncessary; from a nonorthonormal (but lin. independent) basis $\ket{L, r}$ we can construct an orthonormal $q$-basis:
+$$
+\ket{L,q} = \sum_r[R^{-1/2}]_\text{qr}\ket{L,r} \tag{4}
+$$
+where $R$ is a hermitian matrix defined as
+$$
+R_{r,r^\prime} = \braket{L,r|L,r^\prime}
+$$
+from $H$ above, we can translate into an arbitrary $\ket{L,r}$:
+$$
+H_{\ket{L,q}\rightarrow\ket{L,r}} = \sum_{i_1<...<i_M}\sum_{L,r,r^\prime} \ket{L,r;i_1,...,i_M}V^{r,r^\prime}_{L,M}\bra{L,r^\prime;i_1,...,i_M} \tag{5}
+$$
+where here (following steps $(3)$ and $(4)$)
+$$
+\begin{aligned}
+V^{r,r^\prime}_{L,M}&=\bra{L,r}V\ket{L,r^\prime}\\
+&=\bigg(\sum_{r_1}[R^{-1/2}]_{r,r_1}\bra{L,r_1}\bigg)V\bigg(\sum_{r^\prime_1}[R^{-1/2}]_{r^\prime,r^\prime_1}\ket{L,r^\prime_1} \\
+&=\sum_{r_1,r^\prime_1}[R^{-1/2}]_{r,r_1}[R^{-1/2}]_{r^\prime,r^\prime_1}\bra{L,r_1}V\ket{L,r^\prime_1}
+\end{aligned} \tag{6}
+$$
+$(5)$ is the Haldane hamiltonian for $M$-body interactions for any completely linearly independent basis $\ket{L,r}$ (ideal to work with an orthonormal basis
+## Appendix: Sphere & Torus Geometries
+any particle in LLL has angular momentum $S=N_\phi/2$ where $N_\phi$ is the # of total flux quanta through sphere
+for $M$ bosons, the maximum total angular momentum (MTAM) is $MS$, and planar relative angular momentum $L$ = $MS-L$ on spherical
+in fermionic case, planar relative angular momentum = $M(M-1)/2 = MS - M(M-1)/2$ for MTAM on spherical
+---
+from plane to sphere: locally $M$ particles live on a plane
+for COM pointed at north pole, wavefunctions can be mapped from plane to sphere by stereographic projection (read/rezayi, 1999), with modified gaussian factors:
+$$
+e^{-|z|^2/4}\rightarrow\frac 1 {(1+|z|^2/4R^2)^{1+S}}
+$$
+with $R$ being the sphere radius
+on the torus, angular momentum is not conserved
+---
+plugging this into $(1)$, i can get
+$$
+\psi^\text{CM}\bigg(\frac 1 M \sum_{i=1}^M z_i \bigg)\psi(z_1,...,z_M)\sum_{i=1}^M\frac 1 {(1+|z_i|^2/4R^2)^{1+S}}
+$$
+simplify?
+---
+last worked on: 10/06/26<br>useful for haldane formalism; unfortunately primarily focused on planar geometry<br>appendix has some good information about spherical transformation, but ideally i should read read/rezayi (which i’m surprised i have no notes on yet)
+
+
+
+
+
+
