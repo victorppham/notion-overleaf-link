@@ -1,0 +1,29 @@
+# Beyond paired quantum Hall states: Parafermions and incompressible states in the first excited Landau level (rev. 2026-10-12)
+
+## Introduction
+- what is a hierarchy state?
+    - laughlin sequence
+- very advanced paper, may be not too useful
+## Solution of Special $K+$ 1-body Interaction $H$
+CFT crash course (?)
+### Notation + Hamiltonians
+- spherical geometry in LLL, with a radial $B$ field
+- each particle has orbital angular momentum $N_\phi/2$
+- LLL wave functions are written in terms of spinor/homogenous coordinates:
+$$
+\tag{1}
+u_i = e^{i \phi_i/2}\cos \theta_i/2 \\
+v_i = e^{-i \phi_i/2} \sin \theta_i/2 
+$$
+for particles $i = 1,…,N$, where $\theta_i, \phi_i$ are the spherical polar coords.
+- given that these coordinates $u_i, v_i$ are not independent, let’s simplify using stereographic projection (reparameterize the spherical geometry using a single variable) — define a new variable $z_i$:
+$$
+z_i = 2Rv_i/u_i
+$$
+where $R$ is the radius of the sphere
+
+
+
+
+
+
